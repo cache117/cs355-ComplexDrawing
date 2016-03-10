@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="55762302-b527-4897-8aed-26a877c23546" name="Default" comment="" />
+    <list default="true" id="55762302-b527-4897-8aed-26a877c23546" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/scenes/House.blend" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/scenes/House.blend1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/scenes/SUV.blend" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/scenes/SUV.blend1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/scenes/Sedan.blend" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/scenes/Sedan.blend1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/scenes/House.mtl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/scenes/House.scn" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/scenes/SUV.mtl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/scenes/Sedan.mtl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/scenes/Street.scn" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/cs355/view/drawing/util/Matrix.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="ComplexDrawing.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -24,12 +38,26 @@
   <component name="FileEditorManager">
     <leaf />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
       <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/cs355/view/drawing/util/Matrix.java" />
+      </list>
     </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" />
@@ -99,11 +127,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ComplexDrawing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ComplexDrawing" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="cs355" />
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scenes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -119,7 +161,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="last_opened_file_path" value="C:/Program Files (x86)/Java/jre1.8.0_74/lib/ext/lwjgl-2.9.3/jar/lwjgl_util.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../3D-Rendering" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files (x86)\nodejs\node.exe" />
   </component>
   <component name="RunManager" selected="Application.Complex Drawing">
@@ -558,7 +600,7 @@
     <configuration default="false" name="Complex Drawing" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="cs355.solution.CS355" />
-      <option name="VM_PARAMETERS" value="" />
+      <option name="VM_PARAMETERS" value=" -Djava.library.path=lib/" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -581,12 +623,12 @@
       <created>1457630480932</created>
       <option name="number" value="Default" />
       <updated>1457630480932</updated>
-      <workItem from="1457630483147" duration="394000" />
+      <workItem from="1457630483147" duration="1406000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="394000" />
+    <option name="totallyTimeSpent" value="1406000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -646,6 +688,59 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20098522">
           <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cs355/res/Circle.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cs355/res/Camera.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cs355/model/image/CS355Image.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63338304">
+          <caret line="83" column="48" selection-start-line="83" selection-start-column="48" selection-end-line="83" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cs355/view/drawing/util/Matrix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07600596">
+          <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+          <folding>
+            <element signature="e#313#314#0" expanded="true" />
+            <element signature="e#340#341#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cs355/model/scene/ObjParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.2533532">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cs355/model/scene/Point3D.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1266766">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../3D-Rendering/src/CS355/LWJGL/CS355LWJGLController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15201192">
+          <caret line="6" column="39" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
           <folding />
         </state>
       </provider>
