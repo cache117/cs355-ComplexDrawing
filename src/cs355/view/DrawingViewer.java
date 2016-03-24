@@ -4,6 +4,7 @@ import cs355.GUIFunctions;
 import cs355.controller.DrawingController;
 import cs355.model.drawing.*;
 import cs355.model.drawing.Shape;
+import cs355.model.scene.CS355Scene;
 import cs355.view.drawing.DrawableNullShape;
 import cs355.view.drawing.DrawableShape;
 import cs355.view.drawing.util.DrawableShapeFactory;
@@ -32,17 +33,22 @@ public class DrawingViewer implements ViewRefresher
     private double scalingFactor;
     private int hBarPosition;
     private int vBarPosition;
+    private CS355Scene scene;
     private static final double VIEWPORT_SIZE = 512, HALF_WORLD_SIZE = 1024, MAX_SCALING_FACTOR = 4, MIN_SCALING_FACTOR = .25;
+    private VirtualCamera camera;
     // private List<Shape> specificUpdatedShapes;
 
     /**
      * Creates a new Viewer.
+     * @param scene the 3D scene to render the viewer with.
      */
-    public DrawingViewer()
+    public DrawingViewer(CS355Scene scene)
     {
         model = new DrawingModel();
         scalingFactor = 1.0;
         viewportUpperLeft = new Point2D.Double(HALF_WORLD_SIZE, HALF_WORLD_SIZE);
+        this.scene = scene;
+        camera = new VirtualCamera();
     }
 
     /* begin ViewRefresher methods */
@@ -64,6 +70,7 @@ public class DrawingViewer implements ViewRefresher
             drawableShape.draw(drawingParameters);
         }
         selectedShape.drawOutline(drawingParameters);
+
     }
 
     /* end ViewRefresher methods */
@@ -137,5 +144,22 @@ public class DrawingViewer implements ViewRefresher
     public double getScalingFactor()
     {
         return scalingFactor;
+    }
+
+    public void keyPressed(Iterator<Integer> iterator)
+    {
+        if (camera.isCameraMovementEnabled())
+        {
+            while (iterator.hasNext())
+            {
+                camera.keyPressed(iterator.next());
+            }
+            camera.updateScene(scene);
+        }
+    }
+
+    public void toggle3DModelDisplay()
+    {
+        camera.toggleCameraMovementEnabled();
     }
 }

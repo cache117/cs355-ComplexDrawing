@@ -140,14 +140,14 @@ public class ShapeUtilities
      * @param b     one of the vertices of the triangle.
      * @param c     one of the vertices of the triangle.
      * @return true if the point is in the triangle.
-     * @see Vector
+     * @see Vector2D
      */
     public static boolean pointInTriangle(Point2D.Double point, Point2D.Double a, Point2D.Double b, Point2D.Double c)
     {
-        Vector q = new Vector(point);
-        Vector p0 = new Vector(a);
-        Vector p1 = new Vector(b);
-        Vector p2 = new Vector(c);
+        Vector2D q = new Vector2D(point);
+        Vector2D p0 = new Vector2D(a);
+        Vector2D p1 = new Vector2D(b);
+        Vector2D p2 = new Vector2D(c);
 
         //(q-p0)*(p1-p0).orthog()
         double firstDotProduct = (q.subtract(p0)).dotProduct(p1.subtract(p0).orthogonalize());
@@ -168,12 +168,12 @@ public class ShapeUtilities
     public static boolean pointCloseEnoughToLine(Point2D.Double point, Point2D.Double lineStart, Point2D.Double lineEnd, double tolerance)
     {
         //q' = q + (d - q * n^)*n^
-        Vector pointToCheck = new Vector(point);
-        Vector start = new Vector(lineStart);
-        Vector end = new Vector(lineEnd);
-        Vector normalToLine = Vector.calculateNormal(start, end);
+        Vector2D pointToCheck = new Vector2D(point);
+        Vector2D start = new Vector2D(lineStart);
+        Vector2D end = new Vector2D(lineEnd);
+        Vector2D normalToLine = Vector2D.calculateNormal(start, end);
         double lineDistanceFromOrigin = start.dotProduct(normalToLine);
-        Vector nearestPointOnLine = pointToCheck.add(normalToLine.applyScaling(lineDistanceFromOrigin - (pointToCheck.dotProduct(normalToLine))));
+        Vector2D nearestPointOnLine = pointToCheck.add(normalToLine.applyScaling(lineDistanceFromOrigin - (pointToCheck.dotProduct(normalToLine))));
         double pointDistanceFromLine = nearestPointOnLine.length(pointToCheck);
         return pointDistanceFromLine <= tolerance;
         /*

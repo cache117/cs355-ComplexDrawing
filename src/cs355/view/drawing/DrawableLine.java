@@ -28,6 +28,13 @@ public class DrawableLine extends DrawableShape
     }
 
     @Override
+    public Point2D.Double getCenterPoint()
+    {
+        return getStartPoint();
+    }
+
+
+    @Override
     public void drawShape(DrawingParameters drawingParameters)
     {
         Point2D.Double start = getStartPoint();
@@ -47,7 +54,7 @@ public class DrawableLine extends DrawableShape
     public Shape getModelShape()
     {
         Point2D.Double start = getStartPoint();
-        Point2D.Double end = Transform.getObjectPointFromWorldPoint(getEndPoint(), new ObjectParameters(getCenterPoint(), getRotation()));
+        Point2D.Double end = Transform.getObjectPointFromWorldPoint(getEndPoint(), new ObjectParameters(start, getRotation()));
         return new Line(getColor(), start, end);
     }
 
@@ -75,7 +82,7 @@ public class DrawableLine extends DrawableShape
     @Override
     public Point2D.Double getHandleCenterPoint()
     {
-        return new Point2D.Double(0,0);
+        return new Point2D.Double(0, 0);
     }
 
     private Point2D.Double getEndHandleCenterPoint()

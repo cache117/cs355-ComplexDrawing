@@ -1,11 +1,13 @@
 package cs355.view.drawing.util;
 
+import cs355.model.scene.Point3D;
 import cs355.view.DrawingParameters;
 import cs355.view.ObjectParameters;
 import cs355.view.ViewportParameters;
 
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Point2D;
+import java.util.Scanner;
 
 /**
  * Takes care of all point Transformations that are necessary related to Object, World, and View.
@@ -102,6 +104,32 @@ public class Transform
     {
         AffineTransform affineTransform = buildWorldToViewTransformation(viewportParameters);
         return applyTransformationToPoint(affineTransform, worldPoint);
+    }
+
+    public static Matrix buildObjectToWorldTransformation(Point3D objectPoint, double objectRotation)
+    {
+        Matrix transformationMatrix = Matrix.translation(objectPoint);
+        transformationMatrix = Matrix.multiply(transformationMatrix, Matrix.rotation(objectRotation));
+        return transformationMatrix;
+    }
+
+    public static Matrix buildWorldToCameraTransformation(Point3D cameraLocation, double cameraRotation)
+    {
+        Matrix transformationMatrix = Matrix.rotation(cameraRotation);
+        transformationMatrix = Matrix.multiply(transformationMatrix, Matrix.translation(-cameraLocation.x, -cameraLocation.y, -cameraLocation.z));
+        return transformationMatrix;
+    }
+
+    public static Vector3D applyTransformationToVector(Matrix matrix, Vector3D point)
+    {
+        return Matrix.multiply(matrix, point);
+    }
+
+    public static Point2D.Double getPoint2DFromPoint3D(Point3D point)
+    {
+        Vector3D vector = new Vector3D(point);
+        //apply clipping
+        return new Point2D.Double(point.x, point.y);
     }
 
     private static AffineTransform buildObjectToWorldTransformation(ObjectParameters objectParameters)

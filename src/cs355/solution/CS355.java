@@ -19,7 +19,7 @@ public class CS355
     public static void main(String[] args)
     {
         DrawingController controller = new DrawingController();
-        controller.setView(new DrawingViewer());
+        controller.setView(new DrawingViewer(controller.getScene()));
         // Fill in the parameters below with your controller and view.
         GUIFunctions.createCS355Frame(controller, controller.getView());
         init();

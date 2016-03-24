@@ -2,13 +2,13 @@ package cs355.controller;
 
 import cs355.GUIFunctions;
 import cs355.model.drawing.*;
+import cs355.model.scene.CS355Scene;
 import cs355.view.DrawingViewer;
 import cs355.view.ViewRefresher;
 import cs355.view.ViewportParameters;
 import cs355.view.drawing.state.DrawingState;
 import cs355.view.drawing.state.InitialState;
 import cs355.view.drawing.util.Transform;
-import org.omg.CORBA.TRANSACTION_MODE;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -19,19 +19,21 @@ import java.io.File;
 import java.util.*;
 
 /**
- * Created by cstaheli on 1/7/2016.
+ * A Cront
  */
 public class DrawingController implements CS355Controller, MouseListener, MouseMotionListener
 {
     private ViewRefresher view;
     private final CS355Drawing model;
     private DrawingState state;
+    private CS355Scene scene;
 
     public DrawingController()
     {
         model = new DrawingModel();
         state = new InitialState();
         state.setColor(Color.WHITE, model);
+        scene = new CS355Scene();
     }
 
     /* begin CS355Controller methods */
@@ -111,19 +113,20 @@ public class DrawingController implements CS355Controller, MouseListener, MouseM
     @Override
     public void openScene(File file)
     {
-
+        scene.open(file);
     }
 
     @Override
     public void toggle3DModelDisplay()
     {
-
+        ((DrawingViewer) view).toggle3DModelDisplay();
+        GUIFunctions.refresh();
     }
 
     @Override
     public void keyPressed(Iterator<Integer> iterator)
     {
-
+        ((DrawingViewer) view).keyPressed(iterator);
     }
 
     @Override
@@ -333,5 +336,10 @@ public class DrawingController implements CS355Controller, MouseListener, MouseM
     private Point2D.Double getWorldPointFromViewPoint(Point2D.Double viewPoint)
     {
         return Transform.getWorldPointFromViewPoint(viewPoint, new ViewportParameters(getViewportUpperLeft(), getScalingFactor()));
+    }
+
+    public CS355Scene getScene()
+    {
+        return scene;
     }
 }
