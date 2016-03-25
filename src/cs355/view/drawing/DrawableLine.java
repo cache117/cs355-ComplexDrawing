@@ -21,6 +21,13 @@ public class DrawableLine extends DrawableShape
         super(line);
     }
 
+    @Override
+    public void setStartPoint(Point2D.Double startPoint)
+    {
+        super.setStartPoint(startPoint);
+        setCenterPoint(startPoint);
+    }
+
     public DrawableLine(Color color)
     {
         super(color);
@@ -28,18 +35,19 @@ public class DrawableLine extends DrawableShape
     }
 
     @Override
-    public Point2D.Double getCenterPoint()
+    public double getRotation()
     {
-        return getStartPoint();
+        return 0;
     }
-
 
     @Override
     public void drawShape(DrawingParameters drawingParameters)
     {
         Point2D.Double start = getStartPoint();
         Point2D.Double end = getEndPoint();
-        drawingParameters.graphics2D.drawLine((int) start.x, (int) start.y, (int) end.x, (int) end.y);
+        //drawingParameters.graphics2D.drawLine((int) start.x, (int) start.y, (int) end.x, (int) end.y);
+        Point2D.Double point = Transform.getObjectPointFromWorldPoint(end, new ObjectParameters(start, getRotation()));
+        drawingParameters.graphics2D.drawLine(0, 0, (int) point.x, (int) point.y);
     }
 
     @Override
@@ -47,15 +55,17 @@ public class DrawableLine extends DrawableShape
     {
         Line line = (Line) shape;
         setStartPoint(getCenterPoint());
-        setEndPoint(Transform.getWorldPointFromObjectPoint(line.getEnd(), new ObjectParameters(getCenterPoint(), getRotation())));
+        setEndPoint(Transform.getWorldPointFromObjectPoint(line.getEnd(), new ObjectParameters(getStartPoint(), getRotation())));
+        //setEndPoint(line.getEnd());
     }
 
     @Override
     public Shape getModelShape()
     {
-        Point2D.Double start = getStartPoint();
-        Point2D.Double end = Transform.getObjectPointFromWorldPoint(getEndPoint(), new ObjectParameters(start, getRotation()));
-        return new Line(getColor(), start, end);
+        Point2D.Double center = getStartPoint();
+        Point2D.Double end = Transform.getObjectPointFromWorldPoint(getEndPoint(), new ObjectParameters(center, getRotation()));
+        //Point2D.Double end = getEndPoint();
+        return new Line(getColor(), center, end);
     }
 
     @Override
@@ -77,6 +87,7 @@ public class DrawableLine extends DrawableShape
     {
         AffineTransform affineTransform = new AffineTransform();
         drawingParameters.graphics2D.setTransform(affineTransform);
+        Transform.applyTransformationToGraphics(drawingParameters, new ObjectParameters(getCenterPoint(), getRotation()));
     }
 
     @Override
@@ -88,5 +99,6 @@ public class DrawableLine extends DrawableShape
     private Point2D.Double getEndHandleCenterPoint()
     {
         return Transform.getObjectPointFromWorldPoint(getEndPoint(), new ObjectParameters(getCenterPoint(), getRotation()));
+        //return getEndPoint();
     }
 }
