@@ -4,10 +4,13 @@ import cs355.GUIFunctions;
 import cs355.controller.DrawingController;
 import cs355.model.drawing.*;
 import cs355.model.drawing.Shape;
-import cs355.model.scene.CS355Scene;
+import cs355.model.scene.*;
+import cs355.view.drawing.DrawableLine;
 import cs355.view.drawing.DrawableNullShape;
 import cs355.view.drawing.DrawableShape;
 import cs355.view.drawing.util.DrawableShapeFactory;
+import cs355.view.drawing.util.Matrix;
+import cs355.view.drawing.util.Transform;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
@@ -70,7 +73,11 @@ public class DrawingViewer implements ViewRefresher
             drawableShape.draw(drawingParameters);
         }
         selectedShape.drawOutline(drawingParameters);
-
+        if (camera.is3DEnabled())
+        {
+            SceneParser sceneParser = new SceneParser(scene, graphics2D);
+            sceneParser.renderScene();
+        }
     }
 
     /* end ViewRefresher methods */
@@ -148,7 +155,7 @@ public class DrawingViewer implements ViewRefresher
 
     public void keyPressed(Iterator<Integer> iterator)
     {
-        if (camera.isCameraMovementEnabled())
+        if (camera.is3DEnabled())
         {
             while (iterator.hasNext())
             {
@@ -161,5 +168,62 @@ public class DrawingViewer implements ViewRefresher
     public void toggle3DModelDisplay()
     {
         camera.toggleCameraMovementEnabled();
+    }
+
+    private class SceneParser
+    {
+        private final List<Instance> instances;
+        private final Point3D cameraLocation;
+        private final double cameraRotation;
+        private final Matrix cameraMatrix;
+        private final Graphics2D graphics;
+
+        /**
+         * Initializes a SceneParser to render the elements of te scene.
+         * @param scene the scene to be used.
+         * @param graphics the graphics to draw with.
+         */
+        public SceneParser(CS355Scene scene, Graphics2D graphics)
+        {
+            this.instances = scene.instances();
+            this.cameraLocation = scene.getCameraPosition();
+            this.cameraRotation = scene.getCameraRotation();
+            this.cameraMatrix = Transform.buildWorldToCameraTransformation(cameraLocation, cameraRotation);
+            this.graphics = graphics;
+        }
+
+        /**
+         * Renders the entire scene.
+         */
+        public void renderScene()
+        {
+            for (Instance instance : instances)
+            {
+                renderInstance(instance);
+            }
+        }
+
+        /**
+         * Renders all of the relevant information associated with a particular instance.
+         * @param instance the instance to render.
+         */
+        private void renderInstance(Instance instance)
+        {
+            Matrix objectMatrix = Transform.buildObjectToWorldTransformation(instance.getPosition(), instance.getRotAngle());
+            Color color = instance.getColor();
+            double scale = instance.getScale();
+            WireFrame model = instance.getModel();
+            List<Line3D> lines = model.getLines();
+            for (Line3D line : lines)
+            {
+                renderLine(line, objectMatrix, color);
+            }
+        }
+
+        private DrawableLine renderLine(Line3D line3D, Matrix objectMatrix, Color color)
+        {
+            Line line = Transform.get2DLineFrom3DLine(line3D, cameraMatrix, objectMatrix, color);
+            return new DrawableLine(line);
+        }
     }
 }

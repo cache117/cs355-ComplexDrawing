@@ -1,13 +1,15 @@
 package cs355.view.drawing.util;
 
+import cs355.model.drawing.Line;
+import cs355.model.scene.Line3D;
 import cs355.model.scene.Point3D;
 import cs355.view.DrawingParameters;
 import cs355.view.ObjectParameters;
 import cs355.view.ViewportParameters;
 
+import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Point2D;
-import java.util.Scanner;
 
 /**
  * Takes care of all point Transformations that are necessary related to Object, World, and View.
@@ -196,5 +198,14 @@ public class Transform
     private static Point2D.Double applyTransformationToPoint(AffineTransform affineTransform, Point2D.Double point)
     {
         return (Point2D.Double) affineTransform.transform(point, new Point2D.Double());
+    }
+
+    public static Line get2DLineFrom3DLine(Line3D line, Matrix cameraMatrix, Matrix objectMatrix, Color color)
+    {
+        Matrix pipeline = Matrix.multiply(cameraMatrix, objectMatrix);
+        pipeline = Matrix.multiply(Matrix.clipping(1,1,10, 1000), pipeline);
+        Point2D.Double start = Matrix.multiply(pipeline, new Vector3D(line.start)).getAs2DPoint();
+        Point2D.Double end = Matrix.multiply(pipeline, new Vector3D(line.end)).getAs2DPoint();
+        return new Line(color, start, end);
     }
 }

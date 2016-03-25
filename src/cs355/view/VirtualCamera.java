@@ -20,17 +20,17 @@ public class VirtualCamera
     private static final float FOVY = 60f, CLIPPING = FOVY / 2.0f;
     private static final float Z_NEAR = 1, Z_FAR = 200;
 
-    private Point3D cameraLocation;
+    private final Point3D cameraLocation;
     private double rotation;
-    private float movementAmount;
-    private boolean isCameraMovementEnabled;
+    private final float movementAmount;
+    private boolean is3DEnabled;
 
     public VirtualCamera()
     {
         cameraLocation = new Point3D(0, 0, 0);
         rotation = 0.0f;
         movementAmount = UNIT;
-        isCameraMovementEnabled = false;
+        is3DEnabled = false;
     }
 
     /**
@@ -122,14 +122,14 @@ public class VirtualCamera
         rotation -= (movementAmount * 1.5f);
     }
 
-    public boolean isCameraMovementEnabled()
+    public boolean is3DEnabled()
     {
-        return isCameraMovementEnabled;
+        return is3DEnabled;
     }
 
     public void toggleCameraMovementEnabled()
     {
-        isCameraMovementEnabled = !isCameraMovementEnabled;
+        is3DEnabled = !is3DEnabled;
     }
 
     public void updateScene(CS355Scene scene)

@@ -2,6 +2,8 @@ package cs355.view.drawing.util;
 
 import cs355.model.scene.Point3D;
 
+import java.awt.geom.Point2D;
+
 /**
  * Created by cstaheli on 3/20/2016.
  */
@@ -49,6 +51,11 @@ public class Vector3D
     public Point3D getAsPoint()
     {
         return new Point3D(x, y, z);
+    }
+
+    public Point2D.Double getAs2DPoint()
+    {
+        return new Point2D.Double(x, y);
     }
 
     @Override
