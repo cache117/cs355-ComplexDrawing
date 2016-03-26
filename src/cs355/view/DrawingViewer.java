@@ -229,8 +229,8 @@ public class DrawingViewer implements ViewRefresher
             //return new DrawableLine(line);
             Vector3D start = Transform.getCullingVectorFromObjectPoint(line3D.start, cameraMatrix, objectMatrix);
             Vector3D end = Transform.getCullingVectorFromObjectPoint(line3D.end, cameraMatrix, objectMatrix);
-            if (isVectorInDrawableArea(start) && isVectorInDrawableArea(end))
-            {
+            //if (isVectorInDrawableArea(start) && isVectorInDrawableArea(end))
+            //{
                 start = start.normalize();
                 end = end.normalize();
                 double screenSize = 512;
@@ -239,7 +239,7 @@ public class DrawingViewer implements ViewRefresher
                 Line line = new Line(color, startPoint, endPoint);
                 DrawableLine drawableLine = new DrawableLine(line);
                 drawableLine.draw(new DrawingParameters(graphics, new ViewportParameters(new Point2D.Double(0,0), 1)));
-            }
+            //}
         }
 
         private boolean isVectorInDrawableArea(Vector3D vector)

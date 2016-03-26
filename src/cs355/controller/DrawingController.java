@@ -113,7 +113,10 @@ public class DrawingController implements CS355Controller, MouseListener, MouseM
     @Override
     public void openScene(File file)
     {
-        scene.open(file);
+        if (scene.open(file))
+            GUIFunctions.refresh();
+        else
+            GUIFunctions.printf("Opening Scene failed");
     }
 
     @Override

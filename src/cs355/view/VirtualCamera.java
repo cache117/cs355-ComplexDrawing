@@ -1,5 +1,6 @@
 package cs355.view;
 
+import cs355.GUIFunctions;
 import cs355.model.scene.CS355Scene;
 import cs355.model.scene.Point3D;
 
@@ -68,6 +69,7 @@ public class VirtualCamera
             default:
                 break;
         }
+        GUIFunctions.refresh();
     }
 
     private void moveForward()

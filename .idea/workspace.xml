@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55762302-b527-4897-8aed-26a877c23546" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ComplexDrawing/cs355/view/DrawingViewer.class" afterPath="$PROJECT_DIR$/out/production/ComplexDrawing/cs355/view/DrawingViewer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ComplexDrawing/cs355/view/drawing/DrawableShape.class" afterPath="$PROJECT_DIR$/out/production/ComplexDrawing/cs355/view/drawing/DrawableShape.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ComplexDrawing/cs355/view/drawing/util/Transform.class" afterPath="$PROJECT_DIR$/out/production/ComplexDrawing/cs355/view/drawing/util/Transform.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cs355/controller/DrawingController.java" afterPath="$PROJECT_DIR$/src/cs355/controller/DrawingController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cs355/view/DrawingViewer.java" afterPath="$PROJECT_DIR$/src/cs355/view/DrawingViewer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cs355/view/drawing/DrawableShape.java" afterPath="$PROJECT_DIR$/src/cs355/view/drawing/DrawableShape.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cs355/view/drawing/util/Transform.java" afterPath="$PROJECT_DIR$/src/cs355/view/drawing/util/Transform.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cs355/view/drawing/util/Vector3D.java" afterPath="$PROJECT_DIR$/src/cs355/view/drawing/util/Vector3D.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cs355/view/VirtualCamera.java" afterPath="$PROJECT_DIR$/src/cs355/view/VirtualCamera.java" />
     </list>
     <ignored path="ComplexDrawing.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,11 +44,53 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DrawingViewer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DrawingController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cs355/controller/DrawingController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.4827585">
+              <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CS355Frame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cs355/CS355Frame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="332" column="0" selection-start-line="332" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
+              <folding>
+                <element signature="e#13464#13465#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CS355Scene.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cs355/model/scene/CS355Scene.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SceneParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cs355/model/scene/SceneParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DrawingViewer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cs355/view/DrawingViewer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.534687">
-              <caret line="219" column="54" selection-start-line="219" selection-start-column="54" selection-end-line="219" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -67,6 +111,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="79" column="36" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VirtualCamera.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/cs355/view/VirtualCamera.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.46023688">
+              <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -112,16 +166,16 @@
         <option value="$PROJECT_DIR$/src/cs355/view/drawing/util/Vector2D.java" />
         <option value="$PROJECT_DIR$/src/cs355/solution/CS355.java" />
         <option value="$PROJECT_DIR$/src/cs355/view/ViewRefresher.java" />
-        <option value="$PROJECT_DIR$/src/cs355/controller/DrawingController.java" />
         <option value="$PROJECT_DIR$/test/cs355/view/drawing/util/MatrixTest.java" />
-        <option value="$PROJECT_DIR$/src/cs355/view/VirtualCamera.java" />
         <option value="$PROJECT_DIR$/src/cs355/view/drawing/util/Matrix.java" />
         <option value="$PROJECT_DIR$/src/cs355/view/drawing/state/LineState.java" />
         <option value="$PROJECT_DIR$/src/cs355/view/drawing/util/Vector3D.java" />
         <option value="$PROJECT_DIR$/src/cs355/view/drawing/DrawableLine.java" />
         <option value="$PROJECT_DIR$/src/cs355/view/drawing/DrawableShape.java" />
         <option value="$PROJECT_DIR$/src/cs355/view/drawing/util/Transform.java" />
+        <option value="$PROJECT_DIR$/src/cs355/controller/DrawingController.java" />
         <option value="$PROJECT_DIR$/src/cs355/view/DrawingViewer.java" />
+        <option value="$PROJECT_DIR$/src/cs355/view/VirtualCamera.java" />
       </list>
     </option>
   </component>
@@ -941,7 +995,7 @@
       <workItem from="1458875555553" duration="918000" />
       <workItem from="1458876547632" duration="3118000" />
       <workItem from="1458921805236" duration="3620000" />
-      <workItem from="1458961489202" duration="4571000" />
+      <workItem from="1458961489202" duration="6013000" />
     </task>
     <task id="LOCAL-00001" summary="Scene files. Matrix. &#10;&#10;Added needed files.">
       <created>1457631909403</created>
@@ -967,7 +1021,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458925797855</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="3D Line drawing written. Not tested.">
+      <created>1458967706785</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1458967706785</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1003,7 +1063,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59213000" />
+    <option name="totallyTimeSpent" value="60655000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1075,20 +1135,21 @@
     <MESSAGE value="Matrix class working" />
     <MESSAGE value="Most things fleshed out." />
     <MESSAGE value="Line drawing working again." />
-    <option name="LAST_COMMIT_MESSAGE" value="Line drawing working again." />
+    <MESSAGE value="3D Line drawing written. Not tested." />
+    <option name="LAST_COMMIT_MESSAGE" value="3D Line drawing written. Not tested." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/cs355/view/VirtualCamera.java</url>
-          <line>131</line>
+          <line>133</line>
           <properties />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/cs355/view/VirtualCamera.java</url>
-          <line>41</line>
+          <line>42</line>
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
@@ -1098,11 +1159,23 @@
           <properties />
           <option name="timeStamp" value="21" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/cs355/controller/DrawingController.java</url>
+          <line>116</line>
+          <properties />
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/cs355/view/DrawingViewer.java</url>
+          <line>233</line>
+          <properties />
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="24" />
+      <option name="time" value="31" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
@@ -1115,6 +1188,7 @@
       <configuration name="Application">
         <watch expression="getCenterPoint()" language="JAVA" custom="" />
         <watch expression="model.getShape(0)" language="JAVA" custom="" />
+        <watch expression="camera.is3DEnabled()" language="JAVA" custom="" />
       </configuration>
     </watches-manager>
   </component>
@@ -1242,14 +1316,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cs355/CS355Frame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31760436">
-          <caret line="738" column="0" selection-start-line="738" selection-start-column="0" selection-end-line="738" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cs355/view/drawing/util/Vector2D.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17094973">
@@ -1308,13 +1374,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cs355/model/scene/SceneParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07985481">
-          <caret line="97" column="65" selection-start-line="97" selection-start-column="65" selection-end-line="97" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cs355/solution/CS355.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1351,14 +1410,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cs355/model/scene/CS355Scene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cs355/model/drawing/Shape.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1519553">
@@ -1370,22 +1421,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="373" column="0" selection-start-line="373" selection-start-column="0" selection-end-line="376" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cs355/view/VirtualCamera.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46023688">
-          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cs355/controller/DrawingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.1489">
-          <caret line="252" column="18" selection-start-line="252" selection-start-column="18" selection-end-line="252" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -1457,13 +1492,13 @@
         <state vertical-scroll-proportion="0.85617596">
           <caret line="109" column="5" selection-start-line="109" selection-start-column="5" selection-end-line="109" selection-end-column="5" />
           <folding>
-            <element signature="e#2718#2719#0" expanded="true" />
-            <element signature="e#2750#2751#0" expanded="true" />
-            <element signature="e#2774#2775#0" expanded="true" />
-            <element signature="e#2806#2807#0" expanded="true" />
-            <element signature="e#2830#2831#0" expanded="true" />
-            <element signature="e#2872#2873#0" expanded="true" />
-            <element signature="e#2906#2907#0" expanded="true" />
+            <element signature="e#2718#2719#0" expanded="false" />
+            <element signature="e#2750#2751#0" expanded="false" />
+            <element signature="e#2774#2775#0" expanded="false" />
+            <element signature="e#2806#2807#0" expanded="false" />
+            <element signature="e#2830#2831#0" expanded="false" />
+            <element signature="e#2872#2873#0" expanded="false" />
+            <element signature="e#2906#2907#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1503,10 +1538,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/cs355/model/scene/SceneParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cs355/model/scene/CS355Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cs355/CS355Frame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="332" column="0" selection-start-line="332" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
+          <folding>
+            <element signature="e#13464#13465#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cs355/controller/DrawingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.4827585">
+          <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/cs355/view/DrawingViewer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.534687">
-          <caret line="219" column="54" selection-start-line="219" selection-start-column="54" selection-end-line="219" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cs355/view/VirtualCamera.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46023688">
+          <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
           <folding />
         </state>
       </provider>
