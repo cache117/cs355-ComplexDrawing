@@ -43,13 +43,13 @@ public class VirtualCamera
         switch (key)
         {
             case VK_W:
-                moveForward();
+                moveBackward();
                 break;
             case VK_A:
                 moveLeft();
                 break;
             case VK_S:
-                moveBackward();
+                moveForward();
                 break;
             case VK_D:
                 moveRight();
