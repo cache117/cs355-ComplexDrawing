@@ -25,7 +25,9 @@ public abstract class DrawableShape
 
     DrawableShape()
     {
-
+        startPoint = new Point2D.Double();
+        endPoint = new Point2D.Double();
+        centerPoint = new Point2D.Double();
     }
 
     @SuppressWarnings("WeakerAccess")

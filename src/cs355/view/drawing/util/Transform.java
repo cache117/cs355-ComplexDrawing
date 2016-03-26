@@ -9,6 +9,7 @@ import cs355.view.ViewportParameters;
 
 import java.awt.*;
 import java.awt.geom.AffineTransform;
+import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 
 /**
@@ -200,12 +201,26 @@ public class Transform
         return (Point2D.Double) affineTransform.transform(point, new Point2D.Double());
     }
 
-    public static Line get2DLineFrom3DLine(Line3D line, Matrix cameraMatrix, Matrix objectMatrix, Color color)
+    public static Vector3D getCullingVectorFromObjectPoint(Point3D point, Matrix cameraMatrix, Matrix objectMatrix)
     {
         Matrix pipeline = Matrix.multiply(cameraMatrix, objectMatrix);
-        pipeline = Matrix.multiply(Matrix.clipping(1,1,10, 1000), pipeline);
-        Point2D.Double start = Matrix.multiply(pipeline, new Vector3D(line.start)).getAs2DPoint();
-        Point2D.Double end = Matrix.multiply(pipeline, new Vector3D(line.end)).getAs2DPoint();
-        return new Line(color, start, end);
+        pipeline = Matrix.multiply(Matrix.clipping(1, 1, 10, 1000), pipeline);
+        return Matrix.multiply(pipeline, new Vector3D(point));
+    }
+
+    public static Line getUsableLine(Color color, Vector3D start, Vector3D end)
+    {
+        return new Line(color, start.getAs2DPoint(), end.getAs2DPoint());
+    }
+
+    private static Vector3D getClippedVector(Vector3D vector)
+    {
+        return vector;
+    }
+
+    public static Point2D.Double getScreenSpaceCoordinate(Point2D.Double clippedPoint, double screenWidth, double screenHeight)
+    {
+        AffineTransform affineTransform = new AffineTransform(screenWidth / 2.0, 0, 0, -screenHeight / 2.0, screenWidth / 2.0, screenHeight / 2.0);
+        return applyTransformationToPoint(affineTransform, clippedPoint);
     }
 }

@@ -11,20 +11,12 @@ public class Vector3D
 {
     private double x, y, z, homogeneous;
 
-    private Vector3D()
-    {
-        this.x = 0;
-        this.y = 0;
-        this.z = 0;
-        this.homogeneous = 1;
-    }
-
     public Vector3D(double x, double y, double z)
     {
-        this();
         this.x = x;
         this.y = y;
         this.z = z;
+        this.homogeneous = 1;
     }
 
     public Vector3D(double x, double y, double z, double homogeneous)
@@ -90,6 +82,14 @@ public class Vector3D
         return first == second || Math.abs(first / second - 1) < precision;
     }
 
+    public Vector3D normalize()
+    {
+        double x = this.x / this.homogeneous;
+        double y = this.y / this.homogeneous;
+        double z = this.z / this.homogeneous;
+        return new Vector3D(x, y, z);
+    }
+
     @Override
     public int hashCode()
     {
@@ -104,5 +104,25 @@ public class Vector3D
         temp = Double.doubleToLongBits(homogeneous);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
+    }
+
+    public double getX()
+    {
+        return x;
+    }
+
+    public double getY()
+    {
+        return y;
+    }
+
+    public double getZ()
+    {
+        return z;
+    }
+
+    public double getHomogeneous()
+    {
+        return homogeneous;
     }
 }
