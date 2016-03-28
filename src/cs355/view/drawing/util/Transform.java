@@ -1,15 +1,11 @@
 package cs355.view.drawing.util;
 
-import cs355.model.drawing.Line;
-import cs355.model.scene.Line3D;
 import cs355.model.scene.Point3D;
 import cs355.view.DrawingParameters;
 import cs355.view.ObjectParameters;
 import cs355.view.ViewportParameters;
 
-import java.awt.*;
 import java.awt.geom.AffineTransform;
-import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 
 /**
@@ -204,23 +200,26 @@ public class Transform
     public static Vector3D getCullingVectorFromObjectPoint(Point3D point, Matrix cameraMatrix, Matrix objectMatrix)
     {
         Matrix pipeline = Matrix.multiply(cameraMatrix, objectMatrix);
-        pipeline = Matrix.multiply(Matrix.clipping(1, 1, 10, 1000), pipeline);
+        double zoom = 1.0 / Math.tan(Math.PI / 3);
+        pipeline = Matrix.multiply(Matrix.clipping(zoom, zoom, 10, 500), pipeline);
         return Matrix.multiply(pipeline, new Vector3D(point));
     }
 
-    public static Line getUsableLine(Color color, Vector3D start, Vector3D end)
-    {
-        return new Line(color, start.getAs2DPoint(), end.getAs2DPoint());
-    }
 
-    private static Vector3D getClippedVector(Vector3D vector)
+    public static Point2D.Double getScreenSpaceCoordinate(Point2D.Double clippedPoint)
     {
-        return vector;
-    }
-
-    public static Point2D.Double getScreenSpaceCoordinate(Point2D.Double clippedPoint, double screenWidth, double screenHeight)
-    {
+        double screenWidth = 512;
+        double screenHeight = 512;
         AffineTransform affineTransform = new AffineTransform(screenWidth / 2.0, 0, 0, -screenHeight / 2.0, screenWidth / 2.0, screenHeight / 2.0);
         return applyTransformationToPoint(affineTransform, clippedPoint);
+    }
+
+    private static boolean isVectorInDrawableArea(Vector3D vector)
+    {
+        double x = vector.getX();
+        double y = vector.getY();
+        double z = vector.getZ();
+        double w = vector.getHomogeneous();
+        return ((x > -w) && (x < w)) && ((y > -w) && (y < w)) && ((z > -w) && (z < w));
     }
 }

@@ -43,13 +43,13 @@ public class VirtualCamera
         switch (key)
         {
             case VK_W:
-                moveBackward();
+                moveForward();
                 break;
             case VK_A:
                 moveLeft();
                 break;
             case VK_S:
-                moveForward();
+                moveBackward();
                 break;
             case VK_D:
                 moveRight();
@@ -69,7 +69,6 @@ public class VirtualCamera
             default:
                 break;
         }
-        GUIFunctions.refresh();
     }
 
     private void moveForward()
@@ -89,39 +88,39 @@ public class VirtualCamera
     private void moveLeft()
     {
         LOGGER.fine("Moving Left");
-        cameraLocation.x += movementAmount * cos(rotation);
-        cameraLocation.z += movementAmount * sin(rotation);
+        cameraLocation.x -= movementAmount * cos(rotation);
+        cameraLocation.z -= movementAmount * sin(rotation);
     }
 
     private void moveRight()
     {
         LOGGER.fine("Moving Right");
-        cameraLocation.x -= movementAmount * cos(rotation);
-        cameraLocation.z -= movementAmount * sin(rotation);
+        cameraLocation.x += movementAmount * cos(rotation);
+        cameraLocation.z += movementAmount * sin(rotation);
     }
 
     private void moveUp()
     {
         LOGGER.fine("Moving Up");
-        cameraLocation.y -= movementAmount;
+        cameraLocation.y += movementAmount;
     }
 
     private void moveDown()
     {
         LOGGER.fine("Moving Down");
-        cameraLocation.y += movementAmount;
+        cameraLocation.y -= movementAmount;
     }
 
     private void rotateRight()
     {
         LOGGER.fine("Rotating Right");
-        rotation += (movementAmount * 1.5f);
+        rotation -= (movementAmount / 3.0f);
     }
 
     private void rotateLeft()
     {
         LOGGER.fine("Rotating Left");
-        rotation -= (movementAmount * 1.5f);
+        rotation += (movementAmount / 3.0f);
     }
 
     public boolean is3DEnabled()

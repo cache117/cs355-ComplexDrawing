@@ -5,6 +5,7 @@ import cs355.controller.DrawingController;
 import cs355.model.drawing.*;
 import cs355.model.drawing.Shape;
 import cs355.model.scene.*;
+import cs355.view.drawing.Drawable3DLine;
 import cs355.view.drawing.DrawableLine;
 import cs355.view.drawing.DrawableNullShape;
 import cs355.view.drawing.DrawableShape;
@@ -161,6 +162,7 @@ public class DrawingViewer implements ViewRefresher
             while (iterator.hasNext())
             {
                 camera.keyPressed(iterator.next());
+                GUIFunctions.refresh();
             }
             camera.updateScene(scene);
         }
@@ -217,38 +219,9 @@ public class DrawingViewer implements ViewRefresher
             List<Line3D> lines = model.getLines();
             for (Line3D line : lines)
             {
-                renderLine(line, objectMatrix, color);
+                Drawable3DLine drawableLine = new Drawable3DLine(color, line.start, line.end, objectMatrix, cameraMatrix);
+                drawableLine.draw(graphics);
             }
-        }
-
-        private void renderLine(Line3D line3D, Matrix objectMatrix, Color color)
-        {
-            //determine points of line. If all of line is in the clipping area, draw.
-            //Point2D.Double start = Transform.get2DWorldPointFrom3DObjectPoint(line3D.start, cameraMatrix, objectMatrix);
-            //Line line = Transform.get2DLineFrom3DLine(line3D, cameraMatrix, objectMatrix, color);
-            //return new DrawableLine(line);
-            Vector3D start = Transform.getCullingVectorFromObjectPoint(line3D.start, cameraMatrix, objectMatrix);
-            Vector3D end = Transform.getCullingVectorFromObjectPoint(line3D.end, cameraMatrix, objectMatrix);
-            //if (isVectorInDrawableArea(start) && isVectorInDrawableArea(end))
-            //{
-                start = start.normalize();
-                end = end.normalize();
-                double screenSize = 512;
-                Point2D.Double startPoint = Transform.getScreenSpaceCoordinate(start.getAs2DPoint(), screenSize, screenSize);
-                Point2D.Double endPoint = Transform.getScreenSpaceCoordinate(end.getAs2DPoint(), screenSize, screenSize);
-                Line line = new Line(color, startPoint, endPoint);
-                DrawableLine drawableLine = new DrawableLine(line);
-                drawableLine.draw(new DrawingParameters(graphics, new ViewportParameters(new Point2D.Double(0,0), 1)));
-            //}
-        }
-
-        private boolean isVectorInDrawableArea(Vector3D vector)
-        {
-            double x = vector.getX();
-            double y = vector.getY();
-            double z = vector.getZ();
-            double w = vector.getHomogeneous();
-            return ((x < -w) && (x > w)) && ((y < -w) && (y > w)) && ((z < -w) && (z > w));
         }
     }
 }
