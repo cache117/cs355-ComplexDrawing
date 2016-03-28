@@ -162,9 +162,9 @@ public class DrawingViewer implements ViewRefresher
             while (iterator.hasNext())
             {
                 camera.keyPressed(iterator.next());
+                camera.updateScene(scene);
                 GUIFunctions.refresh();
             }
-            camera.updateScene(scene);
         }
     }
 
