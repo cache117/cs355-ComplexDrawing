@@ -2,6 +2,8 @@ package cs355.controller;
 
 import cs355.GUIFunctions;
 import cs355.model.drawing.*;
+import cs355.model.image.CS355Image;
+import cs355.model.image.DrawingImage;
 import cs355.model.scene.CS355Scene;
 import cs355.view.DrawingViewer;
 import cs355.view.ViewRefresher;
@@ -24,9 +26,10 @@ import java.util.*;
 public class DrawingController implements CS355Controller, MouseListener, MouseMotionListener
 {
     private ViewRefresher view;
-    private final CS355Drawing model;
     private DrawingState state;
+    private final CS355Drawing model;
     private CS355Scene scene;
+    private CS355Image image;
 
     public DrawingController()
     {
@@ -34,6 +37,7 @@ public class DrawingController implements CS355Controller, MouseListener, MouseM
         state = new InitialState();
         state.setColor(Color.WHITE, model);
         scene = new CS355Scene();
+        image = new DrawingImage();
     }
 
     /* begin CS355Controller methods */
@@ -114,7 +118,7 @@ public class DrawingController implements CS355Controller, MouseListener, MouseM
     public void openScene(File file)
     {
         if (scene.open(file))
-            GUIFunctions.refresh();
+            scene.notifyObservers();
         else
             GUIFunctions.printf("Opening Scene failed");
     }
@@ -160,7 +164,6 @@ public class DrawingController implements CS355Controller, MouseListener, MouseM
     public void openDrawing(File file)
     {
         model.open(file);
-        GUIFunctions.refresh();
     }
 
     @Override
@@ -304,6 +307,9 @@ public class DrawingController implements CS355Controller, MouseListener, MouseM
         this.view = view;
         this.model.deleteObservers();
         this.model.addObserver(view);
+
+        this.scene.deleteObservers();
+        this.scene.addObserver(view);
     }
 
     public ViewRefresher getView()

@@ -4,6 +4,7 @@ import cs355.GUIFunctions;
 import cs355.controller.DrawingController;
 import cs355.model.drawing.*;
 import cs355.model.drawing.Shape;
+import cs355.model.image.CS355Image;
 import cs355.model.scene.*;
 import cs355.view.drawing.Drawable3DLine;
 import cs355.view.drawing.DrawableLine;
@@ -32,13 +33,13 @@ public class DrawingViewer implements ViewRefresher
 {
     private static final Logger LOGGER = Logger.getLogger(DrawingViewer.class.getName());
 
+    //Models
     private DrawingModel model;
+    private CS355Scene scene;
+    private CS355Image image;
 
     private Point2D.Double viewportUpperLeft;
     private double scalingFactor;
-    private int hBarPosition;
-    private int vBarPosition;
-    private final CS355Scene scene;
     private static final double VIEWPORT_SIZE = 512, HALF_WORLD_SIZE = 1024, MAX_SCALING_FACTOR = 4, MIN_SCALING_FACTOR = .25;
     private final VirtualCamera camera;
     // private List<Shape> specificUpdatedShapes;
@@ -88,7 +89,12 @@ public class DrawingViewer implements ViewRefresher
     @Override
     public void update(Observable o, Object specificShapes)
     {
-        model = (DrawingModel) o;
+        if (o instanceof DrawingModel)
+            model = (DrawingModel) o;
+        else if (o instanceof CS355Image)
+            image = (CS355Image) o;
+        else if (o instanceof CS355Scene)
+            scene = (CS355Scene) o;
         GUIFunctions.refresh();
     }
     /* end Observer methods */
